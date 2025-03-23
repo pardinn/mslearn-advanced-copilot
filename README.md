@@ -58,7 +58,61 @@ Finally, verify the new endpoint is working by trying it out by going to the `/d
 
 🚀 Congratulations, through the exercise, you haven't only used copilot to generate code but also done it in an interactive and fun way! You can use GitHub Copilot to not only generate code, but write documentation, test your applications and more.
 
+## 🚀 How to Run the Project
 
+### Using Python
+
+1. **Clone the repository**:
+    ```sh
+    git clone https://github.com/MicrosoftDocs/mslearn-advanced-copilot.git
+    cd mslearn-advanced-copilot
+    ```
+
+2. **Create a virtual environment**:
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+3. **Install dependencies**:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. **Run the application**:
+    ```sh
+    uvicorn main:app --reload
+    ```
+
+5. **Access the API documentation**:
+    Open your browser and go to `http://127.0.0.1:8000/docs` to see the interactive API documentation.
+
+### Using Docker
+
+1. **Build the Docker image**:
+    ```sh
+    docker build -t my-fastapi-app .
+    ```
+
+2. **Run the Docker container**:
+    ```sh
+    docker run -p 8000:8000 my-fastapi-app
+    ```
+
+3. **Access the API documentation**:
+    Open your browser and go to `http://127.0.0.1:8000/docs` to see the interactive API documentation.
+
+## 🧪 How to Run the Tests
+
+1. **Ensure dependencies are installed**:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+2. **Run the tests**:
+    ```sh
+    python -m unittest discover
+    ```
 
 # Legal Notices
 

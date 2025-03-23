@@ -12,7 +12,6 @@ historical_data = join(current_dir, "weather.json")
 app = FastAPI()
 app.mount("/.well-known", StaticFiles(directory=wellknown_path), name="static")
 
-
 # load historical json data and serialize it:
 with open(historical_data, "r") as f:
     data = json.load(f)
@@ -34,6 +33,11 @@ def countries():
 @app.get('/countries/{country}/{city}/{month}')
 def monthly_average(country: str, city: str, month: str):
     return data[country][city][month]
+
+# Create a new route that exposes the cities of a country:
+@app.get('/countries/{country}')
+def cities(country: str):
+    return list(data[country].keys())
 
 # Generate the OpenAPI schema:
 openapi_schema = app.openapi()
